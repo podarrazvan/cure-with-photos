@@ -1,0 +1,51 @@
+<div class="container">
+ 
+      <form (ngSubmit)="onCreatePost(postForm.value)" #postForm="ngForm">
+        <div class="form-group">
+            <label for="email">Title</label>
+            <input 
+             class="form-control"
+             type="text"
+             name="title"
+             ngModel
+             title
+             required
+             #title="ngModel">
+             <span class="help-blok" *ngIf="!title.valid && title.touched" style="color:red">Please enter a valid title!</span>
+          </div>
+          <div class="form-group"> 
+            <label for="subscription">Subscription</label>
+            <select 
+             class="form-control"
+             name="category"
+             id="category"
+             category
+             ngModel
+             #category="ngModel"
+             >
+              <option *ngFor="let category of categories" >{{category}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="basic-url">Photo's URL</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">https://example.com/</span>
+            </div>
+            <input 
+            type="text"
+            class="form-control" 
+            id="basic-url" aria-describedby="basic-addon3"
+            name="url"
+            ngModel
+            url
+            required
+            #url="ngModel"
+            >
+          </div>
+           <span class="help-blok" *ngIf="!url.valid && url.touched" style="color:red">Please enter an url!</span>
+        </div>
+          <button [disabled]="!postForm.valid" class="btn btn-primary" type="submit">Send</button>
+      </form>  
+ 
+</div>
