@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { take } from 'rxjs/internal/operators/take';
+import { delay } from 'rxjs/operators';
 
 @Component({
     selector: 'app-navbar',
@@ -6,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./navbar.component.css']
   })
 
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck {
     isOpen = false;
-    constructor() {}
-    ngOnInit(): void {
+    isLogin = false;
+    path = "../auth"
+    
+    constructor(private authService: AuthService) {}
 
+    ngOnInit() {  
+    }
+     
+    ngDoCheck() {
+      this.authService.user.pipe(
+        take(1)).subscribe(user => {
+          try  {
+            user.id
+            console.log('esti logat!');
+            this.isLogin = true;
+            this.path = "../profile"
+          }
+          catch {
+            console.log('nu esti logat!')
+          }
+        })
     }
 }

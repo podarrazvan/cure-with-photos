@@ -62,7 +62,7 @@ import { AuthService } from '../../auth/auth.service';
     }
   
     ngOnDestroy() {
-      this.errorSub.unsubscribe();
+      // this.errorSub.unsubscribe();
     }
   }
   
