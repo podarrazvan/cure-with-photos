@@ -4,6 +4,7 @@ import { take } from 'rxjs/internal/operators/take';
 import { exhaustMap } from 'rxjs/operators';
 import { Post } from '../upload-page/post.model';
 import { GeneratePageService } from '../generate-page.service';
+import { PostService } from '../upload-page/posts.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,24 +13,34 @@ import { GeneratePageService } from '../generate-page.service';
   providers:[GeneratePageService]
 })
 export class ProfileComponent implements OnInit {
-
-  id: string;
+  
+  user;
   isLoading = true;
   posts: Post [] = []
   categories: string [] = ["Cats", "Memes"]
   
   constructor(private authService: AuthService,
-              private generatePageService: GeneratePageService){}
+              private generatePageService: GeneratePageService,
+              private postService: PostService){}
 
   ngOnInit() {
-    this.authService.user.pipe(
-      take(1)).subscribe(user => {
-        this.id = user.id;
-      })
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+    this.user = userData;
     this.isLoading = true;
     for(let category of this.categories) {
-      this.posts = this.generatePageService.getPosts(this.id,category);
+      this.posts = this.generatePageService.getPosts(userData.id,category);
     }
     this.isLoading = false;
+  }
+  onDelete(post: Post) {
+    this.postService.deletePost(post.category,this.user.id,post.id).subscribe();
   }
 }

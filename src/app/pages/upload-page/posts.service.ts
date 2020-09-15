@@ -1,9 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpEventType} from '@angular/common/http';
 import { Subject} from 'rxjs';
 
 import { Post } from './post.model';
 import { Id } from '../../auth/auth.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class PostService implements OnInit {
@@ -39,7 +40,27 @@ export class PostService implements OnInit {
   fetchPosts(users, category) {
     return this.http.get<{[key: string]:Post}>(`https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${users}/.json`);
   }
+
   fetchUsers(){
     return this.http.get<{[key: string]:Id}>(`https://cure-with-photos-af2fa.firebaseio.com/users/.json`);
+  }
+
+  deletePost(category: string, user: string, postId: string){
+    console.log(category, user, postId)
+    return this.http
+    .delete(`https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${user}/${postId}/.json`, {
+      observe: 'events',
+      responseType: 'text'
+    }).pipe(
+      tap(event => {
+        console.log(event);
+        if (event.type === HttpEventType.Sent) {
+          // ...
+        }
+        if (event.type === HttpEventType.Response) {
+          console.log(event.body);
+        }
+      })
+    );
   }
 }
