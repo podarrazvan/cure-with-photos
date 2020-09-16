@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     {path: '', component: HomePageComponent}, 
     { path: 'auth', component: AuthComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-    {path:'upload', component: UploadPageComponent},
+    {path:'upload', component: UploadPageComponent, canActivate: [AuthGuard]},
     {path:'cats', component: CatsComponent},
     {path:'memes', component: MemesComponent},
     {path: 'not-found', component: PageNotFoundComponent},

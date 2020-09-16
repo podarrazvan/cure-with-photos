@@ -1,0 +1,12 @@
+.card-title {
+    text-align: center;
+}
+.delete-icon {
+    float: right;
+    background-color: white;
+    border: none;
+}
+
+svg:hover {
+    height: 50px;
+}

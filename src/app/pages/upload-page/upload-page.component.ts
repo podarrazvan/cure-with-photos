@@ -15,27 +15,33 @@ import { AuthService } from '../../auth/auth.service';
   
   export class UploadPageComponent implements OnInit {
     @ViewChild('postForm', { static: false }) ngForm: NgForm;
+    user;
     categories = ['Cats','Memes']
     loadedPosts: Post[] = [];
     isFetching = false;
     error = null;
     private errorSub: Subscription
-    uid = 'public';
+
   
     constructor(private http: HttpClient, private postsService: PostService, private authService: AuthService) {}
   
     ngOnInit() {
-      try {this.authService.user.value.id  
-        this.uid = this.authService.user.value.id
-      }catch {
-        console.log('nu ai id bre')
+      const userData: {
+        email: string;
+        id: string;
+        _token: string;
+        _tokenExpirationDate: string;
+      } = JSON.parse(localStorage.getItem('userData'));
+      if (!userData) {
+        return;
       }
+      this.user = userData;
     }
   
     onCreatePost(postData: Post) {
       // Send Http request
       
-      this.postsService.createAndStorePost(postData.title, postData.category, postData.url, this.uid);
+      this.postsService.createAndStorePost(postData.title, postData.category, postData.url, this.user.id);
       this.ngForm.reset();
     }
   

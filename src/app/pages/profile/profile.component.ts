@@ -40,7 +40,8 @@ export class ProfileComponent implements OnInit {
     }
     this.isLoading = false;
   }
-  onDelete(post: Post) {
+  onDelete(post: Post, index: number) {
     this.postService.deletePost(post.category,this.user.id,post.id).subscribe();
+    this.posts.splice(index, 1);
   }
 }
