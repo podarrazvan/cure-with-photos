@@ -18,7 +18,7 @@ export class PostService implements OnInit {
   }
 
   createAndStorePost(title: string, category: string, url: string, localId: string) {
-    const postData: Post = { title: title, category: category, url: url};
+    const postData: Post = { title: title, category: category,uid: localId, url: url};
     this.http
       .post<{ name: string }>(
         `https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${localId}/.json`,
@@ -30,15 +30,42 @@ export class PostService implements OnInit {
       .subscribe(
         responseData => {
           console.log(responseData);
+          this.addLink(responseData.body.name,responseData.url, postData, localId);
         },
         error => {
           this.error.next(error.message);
         }
       );
   }
+  addLink(name: string,postUrl, post: Post, uid) {
+    let newUrl = postUrl.split(""); 
+    newUrl.splice(postUrl.length-6,0,"/"+name)
+    newUrl = newUrl.join("");
+    const newPost: Post = {title: post.title, category: post.category,uid: post.uid,name: name,url: post.url, postUrl: newUrl};
+    this.http
+    .put(
+      `https://cure-with-photos-af2fa.firebaseio.com/posts/${post.category}/${uid}/${name}/.json`,
+        newPost,
+      {
+        observe: 'response'
+      }
+    )
+    .subscribe(
+      responseData => {
+        console.log(responseData);
+      },
+      error => {
+        this.error.next(error.message);
+      }
+    );
+  }
 
   fetchPosts(users, category) {
     return this.http.get<{[key: string]:Post}>(`https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${users}/.json`);
+  }
+
+  fetchSinglePost(category, uid, name) {
+    return this.http.get<{[key: string]:Post}>(`https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${uid}/${name}/.json`);
   }
 
   fetchUsers(){

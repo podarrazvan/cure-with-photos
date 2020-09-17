@@ -17,7 +17,8 @@ import { LoadingComponent } from './pages/loading/loading.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MainMessageComponent } from './pages/home-page/main-message/main-message.component';
 import { WorkPlanComponent } from './pages/home-page/work-plan/work-plan.component';
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
+import { PostPageComponent } from './pages/post-page/post-page.component'
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FooterComponent } from './footer/footer.component'
     ProfileComponent,
     MainMessageComponent,
     WorkPlanComponent,
-    FooterComponent 
+    FooterComponent,
+    PostPageComponent 
   ],
   imports: [
     BrowserModule,

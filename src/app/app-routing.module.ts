@@ -8,14 +8,16 @@ import {AuthComponent} from './auth/auth.component';
 import { MemesComponent } from './pages/memes/memes.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './auth/auth.guard'
+import { PostPageComponent } from './pages/post-page/post-page.component';
 // import { AuthGuard } from "./auth-guard.service";
 
 
 const appRoutes: Routes = [
     {path: '', component: HomePageComponent}, 
-    { path: 'auth', component: AuthComponent },
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    {path: 'auth', component: AuthComponent},
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     {path:'upload', component: UploadPageComponent, canActivate: [AuthGuard]},
+    {path:'post/:category/:uid/:name', component: PostPageComponent},
     {path:'cats', component: CatsComponent},
     {path:'memes', component: MemesComponent},
     {path: 'not-found', component: PageNotFoundComponent},

@@ -1,0 +1,20 @@
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+<div *ngIf="!isLoading">
+    <div class="post">
+        <h2>{{post.title}}</h2>
+        <hr>
+        <img class="post-img" [src]="post.url" [alt]="post.title">
+        <hr>
+        <h4>Thank you for seeing this picture, and sorry
+            for ads, but as you might know, we are useing ads
+            to keep this server running, why are we doing this you might ask? Because
+            in background we are running simulations for folding@home. So, <b>congratulations </b>
+            you just helped medicine to find a cure for a diesease. Everything you need to know about this
+            <a routerLink="">here</a>, on home page!
+        </h4>
+        <h2><b>Now please help more and share this this picture, thank you! :)</b></h2>
+    </div>
+</div>
+  
