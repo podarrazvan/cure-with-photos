@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, HostListener } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/operators';
@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     isOpen = false;
     isLogin = false;
     path = "../auth"
+  text: string;
     
     constructor(private authService: AuthService) {}
 
@@ -32,5 +33,20 @@ export class NavbarComponent implements OnInit, DoCheck {
             console.log('nu esti logat!')
           }
         })
+    }
+    private wasInside = false;
+  
+    @HostListener('click')
+    clickInside() {
+      this.text = "clicked inside";
+      this.wasInside = true;
+    }
+    
+    @HostListener('document:click')
+    clickout() {
+      if (!this.wasInside) {
+        this.isOpen = false;
+      }
+      this.wasInside = false;
     }
 }

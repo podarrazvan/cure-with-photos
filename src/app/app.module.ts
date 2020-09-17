@@ -15,7 +15,9 @@ import { MemesComponent } from './pages/memes/memes.component';
 import { DropdownDirective } from './dropdown.directive';
 import { LoadingComponent } from './pages/loading/loading.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { MainMessageComponent } from './pages/home-page/main-message/main-message.component'
+import { MainMessageComponent } from './pages/home-page/main-message/main-message.component';
+import { WorkPlanComponent } from './pages/home-page/work-plan/work-plan.component';
+import { FooterComponent } from './footer/footer.component'
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { MainMessageComponent } from './pages/home-page/main-message/main-messag
     DropdownDirective,
     LoadingComponent,
     ProfileComponent,
-    MainMessageComponent 
+    MainMessageComponent,
+    WorkPlanComponent,
+    FooterComponent 
   ],
   imports: [
     BrowserModule,
