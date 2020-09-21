@@ -1,0 +1,12 @@
+<div *ngIf="isLoading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!isLoading">
+  <hr>
+  <h1>With your help we did for folding@home 
+    <span class="circle">
+        {{stats.wus}}
+    </span>
+    work units in {{hours}} hours of work!
+    </h1>
+</div>

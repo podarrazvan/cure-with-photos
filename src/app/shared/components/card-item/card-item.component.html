@@ -1,0 +1,26 @@
+<div *ngIf="editMode">
+    <img src="" alt="">
+    <div>
+        <div *ngIf="title" >{{ title }}</div>
+        <div>{{ subtitle }}</div>
+    </div>
+   
+    <div>
+        <div>{{ currentDate | date: 'dd/MM/yyyy - HH:mm'}}</div>
+        <div>{{ user }}</div>
+    </div>
+</div> 
+
+
+<div *ngIf="!editMode">
+    <img src="" alt="">
+    <div>
+        <div *ngIf="title" >{{ title }}</div>
+        <div>{{ subtitle }}</div>
+    </div>
+   
+    <div>
+        <div>{{ currentDate | date: 'dd/MM/yyyy - HH:mm'}}</div>
+        <div>{{ user }}</div>
+    </div>
+</div> 

@@ -25,12 +25,11 @@ export class NavbarComponent implements OnInit, DoCheck {
         take(1)).subscribe(user => {
           try  {
             user.id
-            console.log('esti logat!');
             this.isLogin = true;
             this.path = "../profile"
           }
           catch {
-            console.log('nu esti logat!')
+            ///
           }
         })
     }
