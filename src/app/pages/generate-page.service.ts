@@ -13,6 +13,7 @@ export class GeneratePageService {
     constructor(public postsService:PostService) { }
   
     generte(category: string) {
+      this.posts = [];
       const usersArray: Id[] = [];
       this.postsService.fetchUsers().pipe(map(responseData =>{
         for(const key in responseData){
