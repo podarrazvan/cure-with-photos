@@ -10,7 +10,6 @@ import { Router, ActivatedRoute } from '@angular/router';
   providers:[GeneratePageService]
 })
 export class PostsComponent implements OnInit, DoCheck {
-  
   urlData: {category: string};
   isLoading = true;
   posts: Post [] = [];

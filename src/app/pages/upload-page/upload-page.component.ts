@@ -40,28 +40,10 @@ import { AuthService } from '../../auth/auth.service';
   
     onCreatePost(postData: Post) {
       // Send Http request
-      
-      this.postsService.createAndStorePost(postData.title, postData.category, postData.url, this.user.id);
+      console.log('this.user._token', this.user._token);          
+      this.postsService.createAndStorePost(postData.title, postData.category, postData.url, this.user.id, this.user._token);
       this.ngForm.reset();
     }
-  
-    // onFetchPosts() {
-    //   // Send Http request
-    //   this.isFetching = true;
-    //   this.postsService.fetchPosts().subscribe(
-    //     posts => {
-    //       this.isFetching = false;
-    //       this.loadedPosts = posts;
-    //     },
-    //     error => {
-    //       this.isFetching = false;
-    //       this.error = error.message;
-    //       console.log(error);
-    //     }
-    //   );
-    // }
-  
-   
   
     onHandleError() {
       this.error = null;

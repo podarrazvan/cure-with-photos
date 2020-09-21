@@ -17,11 +17,11 @@ export class PostService implements OnInit {
 
   }
 
-  createAndStorePost(title: string, category: string, url: string, localId: string) {
+  createAndStorePost(title: string, category: string, url: string, localId: string, token: string) {
     const postData: Post = { title: title, category: category,uid: localId, url: url};
     this.http
       .post<{ name: string }>(
-        `https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${localId}/.json`,
+        `https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${localId}/.json?auth=${token}`,
         postData,
         {
           observe: 'response'
@@ -30,21 +30,21 @@ export class PostService implements OnInit {
       .subscribe(
         responseData => {
           console.log(responseData);
-          this.addLink(responseData.body.name,responseData.url, postData, localId);
+          this.addLink(responseData.body.name,responseData.url, postData, localId, token);
         },
         error => {
           this.error.next(error.message);
         }
       );
   }
-  addLink(name: string,postUrl, post: Post, uid) {
+  addLink(name: string,postUrl, post: Post, uid, token: string) {
     let newUrl = postUrl.split(""); 
     newUrl.splice(postUrl.length-6,0,"/"+name)
     newUrl = newUrl.join("");
     const newPost: Post = {title: post.title, category: post.category,uid: post.uid,name: name,url: post.url, postUrl: newUrl};
     this.http
     .put(
-      `https://cure-with-photos-af2fa.firebaseio.com/posts/${post.category}/${uid}/${name}/.json`,
+      `https://cure-with-photos-af2fa.firebaseio.com/posts/${post.category}/${uid}/${name}/.json?auth=${token}`,
         newPost,
       {
         observe: 'response'
@@ -72,22 +72,9 @@ export class PostService implements OnInit {
     return this.http.get<{[key: string]:Id}>(`https://cure-with-photos-af2fa.firebaseio.com/users/.json`);
   }
 
-  deletePost(category: string, user: string, postId: string){
+  deletePost(category: string, user: string,token: string, postId: string){
     console.log(category, user, postId)
     return this.http
-    .delete(`https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${user}/${postId}/.json`, {
-      observe: 'events',
-      responseType: 'text'
-    }).pipe(
-      tap(event => {
-        console.log(event);
-        if (event.type === HttpEventType.Sent) {
-          // ...
-        }
-        if (event.type === HttpEventType.Response) {
-          console.log(event.body);
-        }
-      })
-    );
+    .delete(`https://cure-with-photos-af2fa.firebaseio.com/posts/${category}/${user}/${postId}/.json?auth=`+token);
   }
 }
