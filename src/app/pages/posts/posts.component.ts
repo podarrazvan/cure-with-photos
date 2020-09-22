@@ -14,6 +14,7 @@ export class PostsComponent implements OnInit, DoCheck {
   isLoading = true;
   posts: Post [] = [];
   oldCategory = "";
+  adBlock = false;
 
   constructor(private generatePageService: GeneratePageService,
               private router: Router,
@@ -24,6 +25,7 @@ export class PostsComponent implements OnInit, DoCheck {
   }
 
   openPost(post: Post) {
+    console.log('post', post);
     this.router.navigate(['/post',this.urlData.category, post.uid, post.name])
   }
   ngDoCheck() {
@@ -38,12 +40,15 @@ export class PostsComponent implements OnInit, DoCheck {
       this.fetchPosts();
     }
   }
-  
   fetchPosts() {
     this.isLoading = true;
     this.posts = [];
     this.posts = this.generatePageService.generte(this.urlData.category);
     this.isLoading = false;
+  }
+  
+  checkAdblock(isDetected: boolean) {
+    this.adBlock = isDetected;
   }
 
 

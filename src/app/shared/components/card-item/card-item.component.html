@@ -13,10 +13,12 @@
   </div>
 </div> 
 <div *ngIf="!editMode">
-  <div class="card" style="width: 30rem;">
-    <img class="card-img-top" [src]="url" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title"><b>{{title}}</b></h3>
+  <div (click)="openPost(post)">
+    <div class="card" style="width: 30rem;">
+      <img class="card-img-top" [src]="url" alt="Card image cap">
+      <div class="card-body">
+        <h3 class="card-title"><b>{{title}}</b></h3>
+      </div>
     </div>
   </div>
 </div> 

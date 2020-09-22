@@ -16,6 +16,7 @@ export class CardItemComponent implements OnInit {
   @Input() index: number= null;
   @Input() editMode: boolean = false;
   @Output() deleteItem: EventEmitter<Post> = new EventEmitter<Post>(null);
+  @Output() open: EventEmitter<Post> = new EventEmitter<Post>(null);
 
   constructor(private profileComponent: ProfileComponent) { }
 
@@ -24,5 +25,9 @@ export class CardItemComponent implements OnInit {
 
   onDelete(post: Post) {
     this.deleteItem.emit(post);
+  }
+
+  openPost(post: Post) {
+    this.open.emit(post);
   }
 }

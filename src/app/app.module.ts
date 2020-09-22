@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgAdblockDetectModule } from 'ng-adblock-detect';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -21,7 +24,9 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { ResultsComponent } from './pages/home-page/results/results.component';
 import { PostsComponent } from './pages/posts/posts.component';
-import { DonatePageComponent } from './pages/donate-page/donate-page.component'
+import { DonatePageComponent } from './pages/donate-page/donate-page.component';
+import { AdblockDetectComponent } from './pages/adblock-detect.component';
+import { AdblockDetectedComponent } from './pages/adblock-detected/adblock-detected.component'
 
 
 @NgModule({
@@ -42,16 +47,21 @@ import { DonatePageComponent } from './pages/donate-page/donate-page.component'
     StatisticsComponent,
     ResultsComponent,
     PostsComponent,
-    DonatePageComponent 
+    DonatePageComponent,
+    AdblockDetectComponent,
+    AdblockDetectedComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    BrowserModule, //Poate e inutila!
+    NgAdblockDetectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+platformBrowserDynamic().bootstrapModule(AppModule);//Poate e inutila!

@@ -15,6 +15,7 @@ export class PostPageComponent implements OnInit {
   isLoading = false;
   urlData: {category: string, uid: string, name: string};
   post;
+  adBlock:boolean;
 
   constructor(private route: ActivatedRoute,
               private postsService: PostService) { }
@@ -42,5 +43,8 @@ export class PostPageComponent implements OnInit {
       this.isLoading = false;
       console.log(this.post);
       return this.post;
+    }
+    checkAdblock(isDetected: boolean) {
+      this.adBlock = isDetected;
     }
 }
