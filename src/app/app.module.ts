@@ -27,7 +27,8 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { DonatePageComponent } from './pages/donate-page/donate-page.component';
 import { AdblockDetectComponent } from './pages/adblock-detect.component';
 import { AdblockDetectedComponent } from './pages/adblock-detected/adblock-detected.component';
-import { ContactPageComponent } from './pages/contact-page/contact-page.component'
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { DmcaPageComponent } from './pages/dmca-page/dmca-page.component'
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
     DonatePageComponent,
     AdblockDetectComponent,
     AdblockDetectedComponent,
-    ContactPageComponent 
+    ContactPageComponent,
+    DmcaPageComponent 
   ],
   imports: [
     BrowserModule,

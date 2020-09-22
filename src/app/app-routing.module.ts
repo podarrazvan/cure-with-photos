@@ -11,6 +11,7 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { DonatePageComponent } from './pages/donate-page/donate-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { DmcaPageComponent } from './pages/dmca-page/dmca-page.component';
 // import { AuthGuard } from "./auth-guard.service";
 
 
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     {path:'post/:category/:uid/:name', component: PostPageComponent},
     {path:'donate', component: DonatePageComponent},
     {path:'contact', component: ContactPageComponent},
+    {path:'dmca', component: DmcaPageComponent},
     {path: 'not-found', component: PageNotFoundComponent},
     {path: '**',redirectTo: '/not-found'}
   ];
