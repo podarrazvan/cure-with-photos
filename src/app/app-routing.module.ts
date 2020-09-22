@@ -10,6 +10,7 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { DonatePageComponent } from './pages/donate-page/donate-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 // import { AuthGuard } from "./auth-guard.service";
 
 
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     {path:'posts/:category', component: PostsComponent},
     {path:'post/:category/:uid/:name', component: PostPageComponent},
     {path:'donate', component: DonatePageComponent},
+    {path:'contact', component: ContactPageComponent},
     {path: 'not-found', component: PageNotFoundComponent},
     {path: '**',redirectTo: '/not-found'}
   ];

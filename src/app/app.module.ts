@@ -26,7 +26,8 @@ import { ResultsComponent } from './pages/home-page/results/results.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { DonatePageComponent } from './pages/donate-page/donate-page.component';
 import { AdblockDetectComponent } from './pages/adblock-detect.component';
-import { AdblockDetectedComponent } from './pages/adblock-detected/adblock-detected.component'
+import { AdblockDetectedComponent } from './pages/adblock-detected/adblock-detected.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component'
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { AdblockDetectedComponent } from './pages/adblock-detected/adblock-detec
     PostsComponent,
     DonatePageComponent,
     AdblockDetectComponent,
-    AdblockDetectedComponent 
+    AdblockDetectedComponent,
+    ContactPageComponent 
   ],
   imports: [
     BrowserModule,
