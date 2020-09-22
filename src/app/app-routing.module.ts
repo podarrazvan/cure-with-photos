@@ -9,6 +9,7 @@ import { AuthGuard } from './auth/auth.guard'
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { PostsComponent } from './pages/posts/posts.component';
+import { DonatePageComponent } from './pages/donate-page/donate-page.component';
 // import { AuthGuard } from "./auth-guard.service";
 
 
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     {path:'upload', component: UploadPageComponent, canActivate: [AuthGuard]},
     {path:'posts/:category', component: PostsComponent},
     {path:'post/:category/:uid/:name', component: PostPageComponent},
+    {path:'donate', component: DonatePageComponent},
     {path: 'not-found', component: PageNotFoundComponent},
     {path: '**',redirectTo: '/not-found'}
   ];

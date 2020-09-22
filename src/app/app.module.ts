@@ -20,7 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { ResultsComponent } from './pages/home-page/results/results.component';
-import { PostsComponent } from './pages/posts/posts.component'
+import { PostsComponent } from './pages/posts/posts.component';
+import { DonatePageComponent } from './pages/donate-page/donate-page.component'
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { PostsComponent } from './pages/posts/posts.component'
     PostPageComponent,
     StatisticsComponent,
     ResultsComponent,
-    PostsComponent 
+    PostsComponent,
+    DonatePageComponent 
   ],
   imports: [
     BrowserModule,
