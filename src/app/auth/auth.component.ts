@@ -14,6 +14,7 @@ export class AuthComponent {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
+  termsOfUse = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -50,7 +51,14 @@ export class AuthComponent {
         this.isLoading = false;
       }
     );
-
+    if (!this.termsOfUse) {
+      alert("You just sold your soul to the devil! \n Please click on \"Terms of use\" and read them...")
+    }
     form.reset();
+  }
+  goToTermsOfUse(){
+    window.open( 
+      "http://localhost:4200/terms-of-use", "_blank");
+    this.termsOfUse = true;
   }
 }

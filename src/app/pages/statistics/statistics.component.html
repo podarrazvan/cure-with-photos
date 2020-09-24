@@ -2,10 +2,24 @@
     <app-loading></app-loading>
 </div>
 <div *ngIf="!isLoading">
-    <h1>With your help we did for folding@home 
-    <span class="circle">
+    <h1>This website was born on 25/09/2020</h1>
+    <hr>
+    <h1><b>Since then...</b></h1><br><br>
+    <h2>With your help we did for folding@home 
+    <span>
         {{stats.wus}}
     </span>
-    work units.
-    </h1>
+    <a href="https://foldingathome.org/faqs/fah-v7/v7-introduction/web-control/what-is-a-work-unit/" target="_blank">work units.</a><br><hr>
+     All of this in <span>{{hours}}</span> hours of work.<br><hr>
+     And we planted a total of <span>{{totalTrees}}</span> trees.<br><hr>
+    </h2>
+    <h2>Last month we earned from ads: <span>{{adsLastMonth}}€</span><br><hr>
+        We earned from donations: <span>{{donationsLastMonth}}€</span><br><hr>
+        And we donated for trees: <span>{{donationsForTreesLastMonth}}€</span><br><hr>
+        So <span>{{trees}}</span> trees will be planted<br><hr>
+        And the server cost us last month: <span>{{serverLastMonth}}€</span><hr>
+        And we didn't used: <span>{{unusedMoney}}€</span><br><hr>
+    </h2>
+    <h2>Processing power right now:<br>
+         2 x 2nd Gen Intel Xeon from Alibaba Cloud (free trial)</h2>
 </div>

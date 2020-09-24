@@ -25,10 +25,10 @@ export class ResultsComponent implements OnInit {
     }) ;
     const date = new Date()
     const m = date.getMonth() + 1;
-    const d = date.getDay() + 13;
+    const d = date.getDay() + 20;
     const y = date.getFullYear();
     const h = date.getHours();
-    const dt1 = new Date("9 19, 2020 08:00:00");
+    const dt1 = new Date("9 23, 2020 17:00:00");
     const dt2 = new Date(`${m} ${d}, ${y} ${h}:00:00`);
     this.hours = this.diff_hours(dt1, dt2);
     

@@ -28,7 +28,8 @@ import { DonatePageComponent } from './pages/donate-page/donate-page.component';
 import { AdblockDetectComponent } from './pages/adblock-detect.component';
 import { AdblockDetectedComponent } from './pages/adblock-detected/adblock-detected.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
-import { DmcaPageComponent } from './pages/dmca-page/dmca-page.component'
+import { DmcaPageComponent } from './pages/dmca-page/dmca-page.component';
+import { TermsOfUseComponent } from './pages/terms-of-use/terms-of-use.component'
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { DmcaPageComponent } from './pages/dmca-page/dmca-page.component'
     AdblockDetectComponent,
     AdblockDetectedComponent,
     ContactPageComponent,
-    DmcaPageComponent 
+    DmcaPageComponent,
+    TermsOfUseComponent 
   ],
   imports: [
     BrowserModule,

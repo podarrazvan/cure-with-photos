@@ -9,6 +9,6 @@ export class StatsService{
 
     public getStats(){
         const proxy = 'https://cors-anywhere.herokuapp.com/';
-         return this.http.get<User>(`${proxy}https://stats.foldingathome.org/api/donor/Tom_the_cat`);
+         return this.http.get<User>(`${proxy}https://stats.foldingathome.org/api/donor/Cure_With_Photos`);
       }
 }

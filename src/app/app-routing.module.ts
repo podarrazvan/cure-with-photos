@@ -1,3 +1,4 @@
+import { TermsOfUseComponent } from './pages/terms-of-use/terms-of-use.component';
 import { NgModule, Component } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     {path:'donate', component: DonatePageComponent},
     {path:'contact', component: ContactPageComponent},
     {path:'dmca', component: DmcaPageComponent},
+    {path:'terms-of-use', component: TermsOfUseComponent},
     {path: 'not-found', component: PageNotFoundComponent},
     {path: '**',redirectTo: '/not-found'}
   ];
