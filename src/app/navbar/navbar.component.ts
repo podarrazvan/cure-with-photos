@@ -10,10 +10,10 @@ import { delay } from 'rxjs/operators';
   })
 
 export class NavbarComponent implements OnInit, DoCheck {
+    mobileIsOpen = false;
     isOpen = false;
     isLogin = false;
     path = "../auth"
-  text: string;
     
     constructor(private authService: AuthService) {}
 
@@ -37,7 +37,6 @@ export class NavbarComponent implements OnInit, DoCheck {
   
     @HostListener('click')
     clickInside() {
-      this.text = "clicked inside";
       this.wasInside = true;
     }
     
@@ -45,6 +44,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     clickout() {
       if (!this.wasInside) {
         this.isOpen = false;
+        this.mobileIsOpen = false;
       }
       this.wasInside = false;
     }

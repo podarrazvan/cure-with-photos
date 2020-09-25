@@ -1,3 +1,20 @@
+<div class="nav-item dropdown active mobile">
+    <button class=" btn btn-primary fnav-link dropdown-toggle" 
+    id="navbarDropdown" 
+    role="button" 
+    data-toggle="dropdown" 
+    aria-haspopup="true" 
+    aria-expanded="false"
+    (click)="isOpen = !isOpen">
+      See a photo (category)
+    </button>
+       <ul class="dropdown-menu" [class.show]="isOpen" style="text-align: center;" > 
+        <li><a style="cursor: pointer;" routerLink="../posts/Animals">Animals</a></li>
+        <hr>
+        <li><a style="cursor: pointer;"routerLink="../posts/Memes">Memes</a></li>
+        </ul>
+</div>
+
 <div class="left">
     <h1>How is this working?</h1>
 </div>

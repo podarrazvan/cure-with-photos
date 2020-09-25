@@ -16,7 +16,7 @@ import { AuthService } from '../../auth/auth.service';
   export class UploadPageComponent implements OnInit {
     @ViewChild('postForm', { static: false }) ngForm: NgForm;
     user;
-    categories = ['Cats','Memes']
+    categories = ['Animals','Memes']
     loadedPosts: Post[] = [];
     isFetching = false;
     error = null;

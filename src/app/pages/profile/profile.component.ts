@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   user;
   isLoading = true;
   posts: Post [] = []
-  categories: string [] = ["Cats", "Memes"]
+  categories: string [] = ["Animals", "Memes"]
   
   constructor(private generatePageService: GeneratePageService,
               private postService: PostService){}
@@ -42,8 +42,6 @@ export class ProfileComponent implements OnInit {
     this.postService.deletePost(post.category,this.user.id,this.user._token,post.id).subscribe((data) => 
     {
         this.posts = this.posts.filter( p => p.id !== post.id );
-        // this.posts = this.posts.splice(index, 1); 
-        console.log("ProfileComponent -> onDelete -> this.posts ", this.posts )
     }, err => {
       console.log(err)
     });

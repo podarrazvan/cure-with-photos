@@ -3,6 +3,17 @@
 }
 
 .post-img {
-    width: 720px;
-    height: 480px;
+    max-width:720px;
+    max-height:460px;
+    
+     width: 50%;
+     height: 50%;
+       
 }
+
+@media screen and (max-width: 750px) {
+    .post-img {
+        max-width:620px;
+        max-height:360px;
+     }
+ }

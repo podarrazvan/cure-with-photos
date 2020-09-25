@@ -2,7 +2,60 @@
     margin-top:-50px;
     padding:300px 200px;
     height: calc(100vh - 3px);
-    width: 99.2vw;
     background-color: black;
+    width: 100vw;
+
     // background: linear-gradient(rgb(83, 105, 118), rgb(41, 46, 73));
+}
+@media screen and (max-width: 822px) {
+    .main-message {
+        height: 50vh;
+        padding: 100px 100px;
+        // width: 100vw;
+    }
+    
+}
+
+@media screen and (max-width: 644px) {
+    .main-message {
+        height: 40vh;
+        // width:105.6vw;
+        padding: 50px 80px;
+    }
+   
+}
+
+@media screen and (max-width: 635px) {
+    .main-message {
+        width:107%;
+        margin-left:-20px;
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    .main-message {
+        width:108%;
+    }
+}
+@media screen and (max-width: 413px) {
+    .main-message {
+        width:110%;
+    }
+}
+@media screen and (max-width: 356px) {
+    .main-message {
+        width:113%;
+    }
+}
+
+// @media screen and (max-width: 270px) {
+//     .main-message {
+//         width:108%;
+//     }
+// }
+
+@media screen and (max-width: 250px) {
+    .main-message {
+        width:107%;
+    }
 }

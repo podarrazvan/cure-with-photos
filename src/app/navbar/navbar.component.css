@@ -2,3 +2,13 @@
     text-align: center;
     padding: 20px;
 }
+
+.mobile {
+    display: none;
+}
+@media screen and (max-width: 991px) {
+    .mobile {
+        display:flex;
+    }
+    
+}

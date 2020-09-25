@@ -11,3 +11,12 @@
 .left {
     float: left;
 }
+
+@media screen and (max-width: 750px) {
+    .right-title,
+    .right,
+    .left {
+        float: none;
+        // width: 100%;
+    }
+}

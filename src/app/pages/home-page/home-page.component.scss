@@ -1,5 +1,27 @@
 .content {
-    padding: 50px 200px;
+    // width: 100%;
+    padding: 50px 19.6vw;
 }
 
 :host{display:flex; flex-direction: column}
+
+@media screen and (max-width: 659px) {
+    .content {
+        // width: 100%;
+        padding: 50px 19vw;
+    }
+    
+}
+@media screen and (max-width: 644px) {
+    .content {
+        margin: 0px -20px;
+    }
+    
+}
+@media screen and (max-width: 635px) {
+    .content {
+        padding: 50px 23vw;
+        width: 100vw;
+    }
+    
+}
