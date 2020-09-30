@@ -10,8 +10,5 @@ export class DropdownDirective {
 
     @HostListener('click') toggleIpen(){
         this.isOpen = !this.isOpen;
-        console.log('appDropDown');
-        console.log(this.isOpen);
-
     }
 } 

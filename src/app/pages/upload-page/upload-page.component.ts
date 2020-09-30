@@ -39,8 +39,7 @@ import { AuthService } from '../../auth/auth.service';
     }
   
     onCreatePost(postData: Post) {
-      // Send Http request
-      console.log('this.user._token', this.user._token);          
+      // Send Http request      
       this.postsService.createAndStorePost(postData.title, postData.category, postData.url, this.user.id, this.user._token);
       this.ngForm.reset();
     }

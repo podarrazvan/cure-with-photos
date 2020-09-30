@@ -1,37 +1,38 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand"  routerLink="/">Cure with photos</a>
+   
     <button class="mobile btn" (click)="mobileIsOpen = !mobileIsOpen">
       <span class="navbar-toggler-icon"></span>
     </button>
+      <div *ngIf="mobileIsOpen" class="dropdown-custom"> 
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item active">
+            <a class="nav-link dropdown-text" [routerLink]="path">{{isLogin ? "Profile":"Account"}}<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link dropdown-text" routerLink="../upload">Upload <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle dropdown-text" 
+            id="navbarDropdown" 
+            role="button" 
+            data-toggle="dropdown" 
+            aria-haspopup="true" 
+            aria-expanded="false"
+            (click)="isOpen = !isOpen">
+              See a photo (category)
+            </a>
+               <ul class="dropdown-menu" [class.show]="isOpen" > 
+                <li><a style="cursor: pointer;" routerLink="../posts/Animals">Animals</a></li>
+                <hr>
+                <li><a style="cursor: pointer;"routerLink="../posts/Memes">Memes</a></li>
+                </ul>
+          </li>
+        </ul>
+      </div>
    
-    
-    <div class="dropdown-menu" [class.show]="mobileIsOpen" id="navbarSupportedContent1">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" style="color:black;" [routerLink]="path">{{isLogin ? "Profile":"Account"}}<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" style="color:black;" routerLink="../upload">Upload <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" 
-          style="color:black;"
-          id="navbarDropdown" 
-          role="button" 
-          data-toggle="dropdown" 
-          aria-haspopup="true" 
-          aria-expanded="false"
-          (click)="isOpen = !isOpen">
-            See a photo (category)
-          </a>
-             <ul class="dropdown-menu" [class.show]="isOpen" > 
-              <li><a style="cursor: pointer;" routerLink="../posts/Animals">Animals</a></li>
-              <hr>
-              <li><a style="cursor: pointer;"routerLink="../posts/Memes">Memes</a></li>
-              </ul>
-        </li>
-      </ul>
-    </div>
+
+ 
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">

@@ -6,6 +6,23 @@
 .mobile {
     display: none;
 }
+
+.dropdown-custom {
+    position: fixed;
+    text-align: center;
+    top:50px;
+    right: 10px;
+    width: 250px;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 50;
+    background-color: white;
+}
+.dropdown-text {
+    color: #007bff !important;
+}
+
 @media screen and (max-width: 991px) {
     .mobile {
         display:flex;

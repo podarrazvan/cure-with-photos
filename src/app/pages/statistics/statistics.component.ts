@@ -25,12 +25,12 @@ export class StatisticsComponent implements OnInit {
     this.getStats();
     const date = new Date()
     const m = date.getMonth() + 1;
-    const d = date.getDay() + 20;
+    const d = date.getDay() + 28;
     const y = date.getFullYear();
     const h = date.getHours();
     const dt1 = new Date("9 23, 2020 17:00:00");
     const dt2 = new Date(`${m} ${d}, ${y} ${h}:00:00`);
-    console.log(dt2);
+    console.log("date: ",dt2);
     this.hours = this.diff_hours(dt1, dt2);
   }
 

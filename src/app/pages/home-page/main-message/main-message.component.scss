@@ -3,7 +3,7 @@
     padding:300px 200px;
     height: calc(100vh - 3px);
     background-color: black;
-    width: 100vw;
+    width: 100%;
 
     // background: linear-gradient(rgb(83, 105, 118), rgb(41, 46, 73));
 }
@@ -18,9 +18,10 @@
 
 @media screen and (max-width: 644px) {
     .main-message {
-        height: 40vh;
+        height: 250px;
+        // height: 40vh;
         // width:105.6vw;
-        padding: 50px 80px;
+        padding: 40px 80px;
     }
    
 }

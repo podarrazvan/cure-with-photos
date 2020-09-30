@@ -41,7 +41,6 @@ export class AuthComponent {
 
     authObs.subscribe(
       resData => {
-        console.log(resData);
         this.isLoading = false;
         this.router.navigate(['../profile']);
       },
@@ -58,7 +57,7 @@ export class AuthComponent {
   }
   goToTermsOfUse(){
     window.open( 
-      "http://localhost:4200/terms-of-use", "_blank");
+      "https://cure-with-photos-af2fa.web.app/terms-of-use", "_blank");
     this.termsOfUse = true;
   }
 }

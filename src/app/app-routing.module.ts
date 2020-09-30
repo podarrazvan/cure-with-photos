@@ -1,6 +1,6 @@
 import { TermsOfUseComponent } from './pages/terms-of-use/terms-of-use.component';
 import { NgModule, Component } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { UploadPageComponent } from "./pages/upload-page/upload-page.component";
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
@@ -34,7 +34,10 @@ const appRoutes: Routes = [
   
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes, {
+            preloadingStrategy: PreloadAllModules, 
+            useHash: true,
+        })
     ],
     exports: [RouterModule]
 })
